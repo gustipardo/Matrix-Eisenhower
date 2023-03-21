@@ -34,12 +34,21 @@ body{
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   background-color: rgb(226,135,67);
+
 }
+.important-urgent_child {
+  background-color: transparent;
+}
+
 
 .important-not-urgent {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   background-color: #64C5EB;
+  padding: 100px;
+}
+.important-not-urgent_child {
+  background-color: transparent;
 }
 
 .not-important-urgent {
@@ -47,11 +56,17 @@ body{
   grid-row: 2 / 3;
   background-color: #FCBD37;
 }
+.not-important-urgent_child {
+  background-color: transparent;
+}
 
 .not-important-not-urgent {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-color: #FC5A37;
+}
+.not-important-not-urgent_child {
+  background-color: transparent;
 }
 
 .not-important-not-urgent, .not-important-urgent, .important-not-urgent, .important-urgent{
@@ -65,6 +80,15 @@ body{
   border-radius: 10px;
 }
 
+/*.important-urgent .element.sortable-drag, .important-not-urgent .element.sortable-drag{
+
+cursor: move;
+background-color: transparent;
+color: transparent;
+border: transparent;
+}*/
+
+
 .element {
 /*  display: inline-block;
   border: 3px solid black;
@@ -76,7 +100,9 @@ body{
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   opacity: 0;*/
-    user-select: none;
+
+
+  user-select: none;
   display: inline-block;
   border: 3px solid black;
   border-radius: 18px;
@@ -87,11 +113,22 @@ body{
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   opacity: 1;
+
+
+/*
+  position: absolute;
+  display: inline-block;
+  left: 10vh;
+  height: 80vh;
+  width: 450px;
+  z-index: 9;
+  background-color: transparent;
+*/
 }
 
 .element:active {
-
-transform: scale(1.1) rotate(3deg);
+cursor: move;
+transform: scale(1.1) rotate(-3deg);
 }
 
 @keyframes aparecer {
@@ -103,15 +140,6 @@ transform: scale(1.1) rotate(3deg);
   }
 }
 
-.conteiner-left {
-  position: absolute;
-  display: inline-block;
-  left: 10vh;
-  height: 80vh;
-  width: 450px;
-  z-index: 9;
-  background-color: transparent;
-}
 
 .conteiner-entrada, .conteiner-entrada__2 {
   display: flex;
