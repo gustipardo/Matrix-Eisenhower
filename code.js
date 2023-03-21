@@ -6,6 +6,7 @@ const importantUrgent_list = document.getElementById("important-urgent__id");
 const importantNoUrgent_list = document.getElementById("important-not-urgent__id");
 const NoimportantUrgent_list = document.getElementById("not-important-urgent__id");
 const NoimportantNoUrgent_list = document.getElementById("not-important-not-urgent__id");
+const Eliminar = document.getElementById("eliminar");
 
 
 function agregarString() { //Agrega el string ingresado en el input en unos de los 5 arrays correspondiente.
@@ -91,7 +92,7 @@ let importantUrgent = new Sortable(importantUrgent_list, {
       get: (sortable) => {
         const conjunto = localStorage.getItem("IU");
 
-        if (conjunto !== null) {
+        if (conjunto !== '') {
           const array = conjunto.split('-');
           for (var i = 0; i < array.length; i++) {
             let contenedorPadreIU = document.getElementById("important-urgent__id");
@@ -121,7 +122,7 @@ let importantNoUrgent = new Sortable(importantNoUrgent_list, {
     },
     get: (sortable) => {
       const conjunto = localStorage.getItem("INU");
-      if (conjunto !== null) {
+      if (conjunto !== '') {
         const array = conjunto.split('-');
         for (var i = 0; i < array.length; i++) {
           let contenedorPadreIU = document.getElementById("important-not-urgent__id");
@@ -148,7 +149,7 @@ let noImportantUrgent = new Sortable(NoimportantUrgent_list, {
       },
       get: (sortable) => {
        const conjunto = localStorage.getItem("NIU");
-       if (conjunto !== null) {
+       if (conjunto !== '') {
          const array = conjunto.split('-');
          for (var i = 0; i < array.length; i++) {
           let contenedorPadreIU = document.getElementById("not-important-urgent__id");
@@ -175,7 +176,7 @@ let noImportantNoUrgent = new Sortable(NoimportantNoUrgent_list, {
     },
     get: (sortable) => {
       const conjunto = localStorage.getItem("NINU");
-      if (conjunto !== null) {
+      if (conjunto !== '') {
         const array = conjunto.split('-');
         for (var i = 0; i < array.length; i++) {
           let contenedorPadreIU = document.getElementById("not-important-not-urgent__id");
@@ -189,5 +190,14 @@ let noImportantNoUrgent = new Sortable(NoimportantNoUrgent_list, {
     }
   });
 
-
-
+new Sortable(Eliminar, {
+  group: 'shared',
+  animation: 150,
+  dragClass: "sortable-drag",
+  filter: '.filtered',
+  onAdd: function (/**Event*/evt) {
+    while (Eliminar.children.length) {
+    Eliminar.removeChild(Eliminar.firstChild);
+  }
+  },
+  });
