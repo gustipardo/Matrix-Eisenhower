@@ -2,8 +2,10 @@
   overflow: hidden;
 font-family: 'Ubuntu', sans-serif;
 background-color: #C9C9C9;
+
 }
-body{
+
+body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,27 +100,7 @@ body{
   border-radius: 10px;
 }
 
-/*.important-urgent .element.sortable-drag, .important-not-urgent .element.sortable-drag{
-
-cursor: move;
-background-color: transparent;
-color: transparent;
-border: transparent;
-}*/
-
-
 .element {
-/*  display: inline-block;
-  border: 3px solid black;
-  border-radius: 18px;
-  padding: 5px;
-  margin: 10px;
-  background-color: #52E4F3;
-  animation-name: aparecer;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  opacity: 0;*/
-
 
   user-select: none;
   display: inline-block;
@@ -131,17 +113,6 @@ border: transparent;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   opacity: 1;
-
-
-/*
-  position: absolute;
-  display: inline-block;
-  left: 10vh;
-  height: 80vh;
-  width: 450px;
-  z-index: 9;
-  background-color: transparent;
-*/
 }
 
 .element:active {
@@ -200,9 +171,6 @@ select {
   font: inherit;
   line-height: 1.25em;
   padding: 0.5em 3.5em 0.5em 1em;
-
-  /* reset */
-
   margin-left: 10px;      
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -211,9 +179,6 @@ select {
   -moz-appearance: none;
 
 }
-
-
-/* arrows */
 
 select.seleccion {
   background-image:
@@ -248,7 +213,6 @@ select.seleccion:focus {
   border-color: skyblue;
 
 }
-
 
 h3 {
   background-color: transparent;
