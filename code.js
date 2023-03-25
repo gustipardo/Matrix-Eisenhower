@@ -63,6 +63,7 @@ const listas = {
 const {lista, clave} = listas[valorSeleccionado];
 localStorage.setItem(clave, lista.toArray().join("-"));
   }
+  document.getElementById('inputId').value = '';
 }
 
 
@@ -99,4 +100,75 @@ new Sortable(Eliminar, {
     Eliminar.removeChild(Eliminar.firstChild);
   }
   },
-  });
+});
+
+
+
+const botonDescargar = document.getElementById("boton-descargar");
+
+
+botonDescargar.addEventListener("click", function() {
+const arrayIU = localStorage.getItem("IU");
+const arrayINU = localStorage.getItem("INU");
+const arrayNIU = localStorage.getItem("NIU");
+const arrayNINU = localStorage.getItem("NINU");
+
+  // Crear un objeto Blob a partir del array
+  const arraysJSON = JSON.stringify({ arrayIU, arrayINU, arrayNIU, arrayNINU });
+  const blob = new Blob([arraysJSON], { type: 'application/json' });
+
+
+  // Crear un objeto URL a partir del objeto Blob
+  const url = URL.createObjectURL(blob);
+
+  // Crear un elemento "a" con el enlace de descarga
+  const enlaceDescarga = document.createElement("a");
+  enlaceDescarga.href = url;
+  enlaceDescarga.download = "MiMatriz.json";
+  document.body.appendChild(enlaceDescarga);
+
+  // Simular un clic en el enlace de descarga
+  enlaceDescarga.click();
+
+  // Eliminar el elemento "a"
+  document.body.removeChild(enlaceDescarga);
+
+  // Liberar el objeto URL
+  URL.revokeObjectURL(url);
+});
+
+
+
+const dropzone = document.getElementById('dropzone');
+
+// Agregar un manejador de eventos para el evento "dragover" en el div dropzone
+dropzone.addEventListener('dragover', (evento) => {
+  evento.preventDefault(); // prevenir comportamiento por defecto
+  dropzone.classList.add('active'); // añadir clase "active" al div
+});
+
+// Agregar un manejador de eventos para el evento "dragleave" en el div dropzone
+dropzone.addEventListener('dragleave', (evento) => {
+  dropzone.classList.remove('active'); // eliminar clase "active" del div
+});
+
+// Agregar un manejador de eventos para el evento "drop" en el div dropzone
+dropzone.addEventListener('drop', (evento) => {
+  evento.preventDefault(); // prevenir comportamiento por defecto
+  dropzone.classList.remove('active'); // eliminar clase "active" del div
+  const archivo = evento.dataTransfer.files[0]; // obtener archivo arrastrado
+  const lector = new FileReader(); // crear objeto FileReader
+  lector.onload = function() {
+    const contenido = lector.result; // obtener contenido del archivo
+    console.log(contenido)
+
+const { arrayIU, arrayINU, arrayNIU, arrayNINU } = JSON.parse(contenido);
+        localStorage.setItem("IU", arrayIU);
+        localStorage.setItem("INU", arrayINU);
+        localStorage.setItem("NIU", arrayNIU);
+        localStorage.setItem("NINU", arrayNINU);
+        location.reload();
+  }
+  lector.readAsText(archivo); // leer archivo como texto
+});
+
