@@ -18,7 +18,7 @@ function createSortableList(listElement, groupName, storeName) {
       },
       get: (sortable) => {
         const conjunto = localStorage.getItem(storeName);
-        if (conjunto !== null) {
+        if (conjunto !== '' && conjunto !== null) {
           const array = conjunto.split('-');
           array.forEach(item => {
           let contenedorPadreIU = listElement;

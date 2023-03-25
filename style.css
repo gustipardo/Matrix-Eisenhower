@@ -1,103 +1,84 @@
 * {
-  overflow: hidden;
-font-family: 'Ubuntu', sans-serif;
-background-color: #C9C9C9;
-
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #C9C9C9;
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.scrollable-content {
+  height: 200px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+h1 {
+  text-align: center;
 }
 
 
-.eliminar {
-  float: right;
-  height: 100px;
-  width: 200px;
-  background-color: rgb(179, 100, 100);
-  border: solid rgb(15, 15, 15);
-  border-width: 4px;
-  border-radius: 20px;
-}
 
-#eliminar{
-  height: 70%;
-  width: 100%;
-  background-color: rgb(179, 0, 0);
-  border: solid rgb(15, 15, 15);;
-  border-width: 4px 0px;
-}
-
-.container {
-  display: inline-block;
-  height: 100vh;
-}
-
-.grid-container {
+.matrix-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
-  width: 750px;
-  height: 750px;
+  gap: 0.75em;
   background-color: #F2F2F2;
   padding: 20px;
   margin: auto;
   font-size: 25px;
   border-radius: 30px;
+  width: 50%;
+  min-width: 700px;
+  min-height: 700px;
+}
+
+.matrix-container > div {
+  border-radius: 1.5em;
+  padding: 0px 20px;
+}
+
+.matrix-container > div > div {
+  background-color: transparent;
 }
 
 .important-urgent {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   background-color: rgb(226,135,67);
-
 }
-.important-urgent_child {
-  background-color: transparent;
-}
-
-
 .important-not-urgent {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   background-color: #64C5EB;
-  padding: 100px;
 }
-.important-not-urgent_child {
-  background-color: transparent;
-}
-
 .not-important-urgent {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   background-color: #FCBD37;
 }
-.not-important-urgent_child {
-  background-color: transparent;
-}
-
 .not-important-not-urgent {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-color: #FC5A37;
 }
-.not-important-not-urgent_child {
+
+.filtered{
   background-color: transparent;
-}
-
-.not-important-not-urgent, .not-important-urgent, .important-not-urgent, .important-urgent{
-  border-radius: 30px;
-  padding: 20px;
-}
-
-.important-urgent-content {
-  display: inline-block;
-  border: 1px solid black;
-  border-radius: 10px;
+  text-align: center;
 }
 
 .element {
@@ -113,6 +94,7 @@ body {
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   opacity: 1;
+
 }
 
 .element:active {
@@ -120,27 +102,43 @@ cursor: move;
 transform: scale(1.1) rotate(-3deg);
 }
 
-@keyframes aparecer {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.eliminar {
+  margin-top: auto;
+border: 3px solid black;
+background-color: rgb(179, 100, 100);
+border-radius: 1.5em;
+width: 200px;
+height: 80px;
+float: right;s
 }
 
+.eliminar > h3 {
+  margin: 0.2em auto;
+}
+
+#eliminar{
+border: 3px solid black;
+background-color: rgb(179, 0, 0);
+border-radius: 1.5em;
+height: 70%;
+width: 100%;
+margin: -3px;
+}
 
 .conteiner-entrada, .conteiner-entrada__2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 1em;
+  min-width: 700px;
+  height: 3em;
 }
 
 .conteiner-entrada__input  {
   font-size: 25px;
   border-radius: 10px;
   padding: 0.15em 0.5em;
+  min-width: 150px;
 }
 .conteiner-entrada__button{
   width: 120px;
@@ -152,7 +150,6 @@ transform: scale(1.1) rotate(-3deg);
   transition: transform 0.2s ease-in-out;
   margin: 0px 30px;
 }
-
 .conteiner-entrada__button:hover {
 background-color: #30fc86;
   }
@@ -162,8 +159,7 @@ background-color: #30fc86;
 transform: translateY(3px);
   }
 
-select {
-  /* styling */
+  select {
   background-color: white;
   border: black;
   border-radius: 6px;
@@ -177,7 +173,7 @@ select {
   box-sizing: border-box;
   -webkit-appearance: none;
   -moz-appearance: none;
-
+  width: 267px;
 }
 
 select.seleccion {
@@ -213,10 +209,3 @@ select.seleccion:focus {
   border-color: skyblue;
 
 }
-
-h3 {
-  background-color: transparent;
-  text-align: center;
-  margin: 0 auto;
-}
-
