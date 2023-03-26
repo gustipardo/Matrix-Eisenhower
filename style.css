@@ -307,6 +307,11 @@ position: fixed;
       }
       .matrix{
         width: 100%;
+        min-width: 70;
+        min-width: 1300px;
+      }
+      .matrix-container{
+        min-width: 1300px;
       }
       .file-input, .descargar{
         display: none;
