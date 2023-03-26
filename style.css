@@ -311,6 +311,7 @@ position: fixed;
       }
       .matrix-container{
         width: 100%;
+        min-height: 700px;
       }
       .file-input, .descargar{
         display: none;
