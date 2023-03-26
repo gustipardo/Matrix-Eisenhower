@@ -139,6 +139,11 @@ const arrayNINU = localStorage.getItem("NINU");
 
 
 
+
+
+
+
+
 const dropzone = document.getElementById('dropzone');
 
 // Agregar un manejador de eventos para el evento "dragover" en el div dropzone
@@ -157,18 +162,29 @@ dropzone.addEventListener('drop', (evento) => {
   evento.preventDefault(); // prevenir comportamiento por defecto
   dropzone.classList.remove('active'); // eliminar clase "active" del div
   const archivo = evento.dataTransfer.files[0]; // obtener archivo arrastrado
+  leerArchivo(archivo);
+});
+
+// Agregar un manejador de eventos para el evento "change" en el input fileUpload
+const fileUpload = document.getElementById("file-upload");
+fileUpload.addEventListener("change", (evento) => {
+  const archivo = evento.target.files[0]; // obtener archivo seleccionado por el usuario
+  leerArchivo(archivo);
+});
+
+// Función para leer el contenido del archivo
+function leerArchivo(archivo) {
   const lector = new FileReader(); // crear objeto FileReader
   lector.onload = function() {
     const contenido = lector.result; // obtener contenido del archivo
-    console.log(contenido)
-
-const { arrayIU, arrayINU, arrayNIU, arrayNINU } = JSON.parse(contenido);
-        localStorage.setItem("IU", arrayIU);
-        localStorage.setItem("INU", arrayINU);
-        localStorage.setItem("NIU", arrayNIU);
-        localStorage.setItem("NINU", arrayNINU);
-        location.reload();
+    const { arrayIU, arrayINU, arrayNIU, arrayNINU } = JSON.parse(contenido);
+    localStorage.setItem("IU", arrayIU);
+    localStorage.setItem("INU", arrayINU);
+    localStorage.setItem("NIU", arrayNIU);
+    localStorage.setItem("NINU", arrayNINU);
+    location.reload();
   }
   lector.readAsText(archivo); // leer archivo como texto
-});
+}
+
 
