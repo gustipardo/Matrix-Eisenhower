@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Matriz de Eisenhower</title>
+	<title>Eisenhower Matrix</title>
 	<link rel="icon" href="./matrix.png" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="./style.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,26 +14,27 @@
 
 </div>
 <div class="container" id="lista">
-	<h1>Matriz de Eisenhower</h1>
+	<h1>Eisenhower Matrix</h1>
+
 <div class="matrix">
 	<div class="matrix-container">
 		<div class="important-urgent" >
-			<h3 class="filtered">Importante y Urgente</h3>
+			<h3 class="filtered">Important and Urgent</h3>
 			<div id="important-urgent__id" class="important-urgent_child"></div>
 		</div>
 
 		<div class="important-not-urgent" >
-			<h3 class="filtered">Importante y No Urgente</h3>
+			<h3 class="filtered">Important and Not Urgent</h3>
 			<div id="important-not-urgent__id" class="important-not-urgent_child"></div>
 		</div>
 
 		<div class="not-important-urgent" >
-			<h3 class="filtered">No Importante y Urgente</h3>
+			<h3 class="filtered">Not Important and Urgent</h3>
 			<div id="not-important-urgent__id" class="not-important-urgent_child"></div>
 		</div>
 
 		<div class="not-important-not-urgent" >
-			<h3 class="filtered">No Importante y No Urgente</h3>
+			<h3 class="filtered">Not Important and Not Urgent</h3>
 			<div id="not-important-not-urgent__id" class="not-important-not-urgent_child"></div>
 		</div>
 
@@ -42,40 +43,45 @@
 
 
 	<div class="conteiner-entrada">
-		<input class="conteiner-entrada__input" type="text" id="inputId" placeholder="Escriba aqui"
+		<input class="conteiner-entrada__input" type="text" id="inputId" placeholder="Type here"
 		onkeyup="activarBoton(event)">
 		<select id="select" class="seleccion">
-			<option selected hidden>Seleccione un clasificación</option>
-			<option value="important-urgent__id">Importante y Urgente</option>
-			<option value="important-not-urgent__id">Importante y No Urgente</option>
-			<option value="not-important-urgent__id">No Importante y Urgente</option>
-			<option value="not-important-not-urgent__id">No Importante y No Urgente</option>
+			<option selected hidden>Select a classification</option>
+			<option value="important-urgent__id">Important and Urgent</option>
+			<option value="important-not-urgent__id">Important and Not Urgent</option>
+			<option value="not-important-urgent__id">Not Important and Urgent</option>
+			<option value="not-important-not-urgent__id">Not Important and Not Urgent</option>
 		</select>
 		<div class="eliminar"  >
-			<h3 class="filtered">Eliminar</h3>
+			<h3 class="filtered">Delete</h3>
 			<div id="eliminar"></div>
 		</div>
 	</div>
 	<div class="conteiner-entrada__2">
-		<button class="conteiner-entrada__button" onclick="agregarString()" id="miBoton">Agregar</button>
+		<button class="conteiner-entrada__button" onclick="agregarString()" id="miBoton">Add</button>
 
-		<button class="conteiner-entrada__buttonReiniciar" id="reiniciar" onclick="reiniciarString()">Reiniciar</button>
+		<button class="conteiner-entrada__buttonReiniciar" id="reiniciar" onclick="reiniciarString()">Reset</button>
 
 
 		<div class="descargar" id="boton-descargar">
 			<img src="./upload-solid2.svg"  alt="Icono de importar" class="icono">
-			<span class="texto">Descargar matriz</span>
+			<span class="texto">Download matrix</span>
 		</div>
 		
 
 		<div class="file-input" id="dropzone">
 			<img src="./upload-solid.svg" alt="Imagen">
-			<label for="file-upload">Importar matriz</label>
+			<label for="file-upload">Import matrix</label>
 			<input id="file-upload" type="file" style="display:none">
 		</div>
 
 
 	</div>
+<!-- <label for="language" id="label">Language:</label>
+<select id="language">
+  <option value="en">English</option>
+  <option value="es">Español</option>
+</select> -->
 
 
 
